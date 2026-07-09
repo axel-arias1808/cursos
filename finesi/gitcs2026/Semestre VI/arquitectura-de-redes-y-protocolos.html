@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
+<title>Arquitectura de Redes y Protocolos · UNA Puno</title>
+<meta name="description" content="Sílabo del curso Arquitectura de Redes y Protocolos - Facultad de Ingeniería Estadística e Informática - UNA Puno"/>
+<style>
+:root{
+  --accent: #0e7490;
+  --accent-soft: #06b6d4;
+  --bg: #060913;
+  --card: #ffffff;
+  --ink: #12141c;
+  --muted: #5b6072;
+  --line: #e7e8ee;
+  --chip: #f4f5fa;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background: radial-gradient(1200px 600px at 10% -10%, #10162b 0%, var(--bg) 55%);
+  font-family: 'Source Sans Pro', -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--ink);
+  padding: 32px 18px 60px;
+}
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,.55);
+}
+.hero{
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+  color: #fff;
+  padding: 46px 44px 34px;
+  position: relative;
+}
+.hero .eyebrow{
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12.5px;
+  font-weight: 700;
+  opacity: .85;
+  margin: 0 0 10px;
+}
+.hero h1{
+  margin: 0 0 6px;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.hero .sub{
+  font-size: 15.5px;
+  opacity: .92;
+  margin: 0 0 22px;
+  max-width: 640px;
+}
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
+}
+.nav{
+  display:flex; flex-wrap:wrap; gap: 2px;
+  background: var(--chip);
+  padding: 10px 44px;
+  border-bottom: 1px solid var(--line);
+  position: sticky; top:0; z-index: 5;
+}
+.nav a{
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+.nav a:hover{ color: var(--accent); background: #fff; }
+.content{ padding: 40px 44px 50px; }
+section{ margin-bottom: 42px; scroll-margin-top: 60px; }
+h2.section-title{
+  font-size: 22px;
+  margin: 0 0 4px;
+  color: var(--ink);
+  display:flex; align-items:center; gap:10px;
+}
+h2.section-title .num{
+  width: 30px; height:30px; border-radius: 9px;
+  background: var(--accent-soft); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 14px; font-weight:700;
+}
+.section-hint{ color: var(--muted); font-size: 13.5px; margin: 0 0 18px; }
+p.lead{ line-height: 1.7; color: #2b2e3a; font-size: 15.5px; text-align: justify; }
+.unit{
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.unit-head{
+  background: var(--chip);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.unit-head .tag{
+  color: var(--accent); font-weight: 700; font-size: 12.5px;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.unit-head h3{ margin: 4px 0 6px; font-size: 18px; }
+.unit-head .goal{ margin:0; color: var(--muted); font-size: 13.8px; line-height:1.5; }
+.unit-meta{ display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
+.unit-meta span{ font-size: 12.5px; color: var(--muted); font-weight:600; }
+.weeks{ padding: 6px 20px 18px; }
+.week{
+  display:grid;
+  grid-template-columns: 70px 1fr;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.week:last-child{ border-bottom:none; }
+.week .wnum{
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 13px;
+  padding-top: 2px;
+}
+.week .wbody b{ display:block; font-size: 14.3px; margin-bottom:2px; color: var(--ink); }
+.week .wbody .know{ font-size: 13.3px; color: var(--muted); line-height:1.5; }
+.week .wbody .ev{
+  display:inline-block; margin-top:6px; font-size: 11.8px;
+  background: var(--accent-soft); color:#fff; padding: 3px 9px; border-radius: 999px; font-weight:700;
+}
+table.eval{ width:100%; border-collapse: collapse; margin-top: 6px; font-size: 13.6px;}
+table.eval th{
+  text-align:left; background: var(--chip); padding: 10px 12px;
+  border-bottom: 2px solid var(--accent-soft); font-size: 12.3px;
+  text-transform: uppercase; letter-spacing:.04em; color: var(--muted);
+}
+table.eval td{ padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; color:#2b2e3a;}
+table.eval tr:last-child td{ border-bottom:none; }
+.formula{
+  background: var(--chip); border-left: 3px solid var(--accent-soft);
+  padding: 14px 18px; border-radius: 8px; font-size: 13.6px; line-height:1.7; color:#2b2e3a;
+}
+ul.plain{ margin: 8px 0 0; padding-left: 20px; }
+ul.plain li{ margin-bottom: 7px; font-size: 14px; line-height:1.55; color:#2b2e3a; }
+.grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media (max-width: 720px){ .grid2{ grid-template-columns: 1fr; } .hero{padding:34px 24px 26px;} .content{padding:28px 24px 40px;} .nav{padding:10px 20px;} .week{grid-template-columns: 46px 1fr;} }
+.biblio-cat{ font-weight:700; color: var(--accent); font-size:13px; text-transform:uppercase; letter-spacing:.05em; margin: 16px 0 6px; }
+.biblio-cat:first-child{ margin-top:0; }
+.footer{
+  padding: 26px 44px 34px; border-top: 1px solid var(--line);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  color: var(--muted); font-size: 12.8px;
+}
+.footer a{ color: var(--accent); text-decoration:none; font-weight:600;}
+.badge-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background: var(--accent-soft); margin-right:7px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Facultad de Ingeniería Estadística e Informática &middot; UNA Puno</p>
+    <h1>Arquitectura de Redes y Protocolos</h1>
+    <p class="sub">Organización de redes computacionales y protocolos de comunicación de datos, con talleres de simulación en Cisco Packet Tracer.</p>
+    <div class="chips"><div class="chip">Ciclo VI</div><div class="chip">3 créditos</div><div class="chip">4 h/semana (2T+2P)</div><div class="chip">Presencial</div><div class="chip">Aula 205-A</div></div>
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a>
+    <a href="#logro">Logro</a>
+    <a href="#contenido">Contenido</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#evaluacion">Evaluación</a>
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <div class="content">
+
+    <section id="sumilla">
+      <h2 class="section-title"><span class="num">1</span>Sumilla</h2>
+      <p class="lead">El curso corresponde al área de estudios de especialidad, es de naturaleza teórico-práctica y su propósito es proporcionar al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando las modernas tecnologías de transmisión de datos y comunicaciones. Comprende: (1) Fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos; (2) Fundamentos de servicios y seguridad, con talleres de simulación de la red de comunicación de datos de una organización.</p>
+    </section>
+
+    <section id="logro">
+      <h2 class="section-title"><span class="num">2</span>Logro de aprendizaje del curso</h2>
+      <p class="lead">El estudiante comprende el fundamento de la arquitectura de redes y protocolos para el diseño, configuración y administración de redes de telecomunicaciones utilizando herramientas de simulación.</p>
+    </section>
+
+    <section id="contenido">
+      <h2 class="section-title"><span class="num">3</span>Contenido temático</h2>
+      <p class="section-hint">Distribución semanal organizada en dos unidades didácticas.</p>
+      
+    <div class="unit">
+      <div class="unit-head">
+        <div class="tag">Unidad 1</div>
+        <h3>Fundamentos de comunicación de datos y arquitectura de redes</h3>
+        <p class="goal">Determina las condiciones técnicas y arquitectónicas del funcionamiento de redes informáticas y teleprocesamiento, considerando arquitectura, medios, elementos y protocolos.</p>
+        <div class="unit-meta">
+          <span>&#128197; 30 mar – 1 jun 2026</span>
+          <span>&#9200; 36 horas</span>
+          <span>&#128202; Avance: 100%</span>
+        </div>
+      </div>
+      <div class="weeks">
+        
+        <div class="week">
+          <div class="wnum">Semana 1</div>
+          <div class="wbody">
+            <b>Conceptos y elementos de arquitectura de redes</b>
+            <div class="know">Conceptos, elementos, dispositivos, arquitectura de redes y protocolos, teleproceso y proyectos de conectividad.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 2</div>
+          <div class="wbody">
+            <b>Conmutación, modulación y multiplexación</b>
+            <div class="know">Paradigmas de transmisión y acceso al medio de datos.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 3</div>
+          <div class="wbody">
+            <b>Tipos de redes</b>
+            <div class="know">PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet, intranet y extranet.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 4</div>
+          <div class="wbody">
+            <b>Topologías de red</b>
+            <div class="know">Topologías físicas y lógicas, cableado estructurado y redes de banda ancha con Cisco Packet Tracer.</div>
+            <span class="ev">Examen escrito (100%)</span>
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 5</div>
+          <div class="wbody">
+            <b>Modelos OSI y TCP/IP</b>
+            <div class="know">Protocolos, arquitecturas y capas: interfaces, medidas, algoritmos y servicios.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 6</div>
+          <div class="wbody">
+            <b>Capa física</b>
+            <div class="know">Medios de comunicación, señalización, representación y codificación física.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 7</div>
+          <div class="wbody">
+            <b>Tecnología Ethernet</b>
+            <div class="know">Ethernet y Gigabit Ethernet (IEEE 802.x), control de acceso al medio: NICs, hubs, switches, protocolo ARP.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 8</div>
+          <div class="wbody">
+            <b>Capa de enlace de datos</b>
+            <div class="know">Técnicas de control de acceso al medio y entramado de datos.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 9</div>
+          <div class="wbody">
+            <b>Capa de red</b>
+            <div class="know">Enrutamiento IPv4, dispositivos y protocolos de la capa de red, paquetes y direcciones IP.</div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="unit">
+      <div class="unit-head">
+        <div class="tag">Unidad 2</div>
+        <h3>Diseño arquitectónico lógico y protocolar en capas OSI/TCP-IP</h3>
+        <p class="goal">Diseña arquitectónicamente en el nivel lógico y protocolar las distintas capas de los modelos OSI y TCP/IP.</p>
+        <div class="unit-meta">
+          <span>&#128197; 1 jun – 27 jul 2026</span>
+          <span>&#9200; 32 horas</span>
+          <span>&#128202; Avance: 100%</span>
+        </div>
+      </div>
+      <div class="weeks">
+        
+        <div class="week">
+          <div class="wnum">Semana 10</div>
+          <div class="wbody">
+            <b>Dispositivo Router</b>
+            <div class="know">Técnicas de enrutamiento, protocolos IPv6, paquetes, procesos e interfaces.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 11</div>
+          <div class="wbody">
+            <b>Direccionamiento IP en Cisco Packet Tracer</b>
+            <div class="know">Configuración de servicios de router: direccionamiento IPv4/IPv6 de redes y subredes.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 12</div>
+          <div class="wbody">
+            <b>Capas de transporte, sesión y presentación</b>
+            <div class="know">Funciones, servicios y protocolos: TCP/UDP, DNS, LDAP, TELNET, FTP, RIP, SNMP, entre otros.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 13</div>
+          <div class="wbody">
+            <b>Enrutamiento estático y dinámico</b>
+            <div class="know">Configuración de servicios de enrutamiento.</div>
+            <span class="ev">Evidencia de Unidad 2 (100%)</span>
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 14</div>
+          <div class="wbody">
+            <b>Redes inalámbricas (WLAN)</b>
+            <div class="know">Arquitectura, servicios y control de acceso al medio IEEE 802.11.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 15</div>
+          <div class="wbody">
+            <b>Redes satelitales</b>
+            <div class="know">Arquitectura, servicios y control de acceso al medio de redes globales.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 16</div>
+          <div class="wbody">
+            <b>Redes de fibra óptica</b>
+            <div class="know">Arquitectura, estructura y características de redes ópticas.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 17</div>
+          <div class="wbody">
+            <b>Seguridad de redes</b>
+            <div class="know">Fundamentos de seguridad de la red de computadoras.</div>
+            <span class="ev">Examen escrito</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section id="metodologia">
+      <h2 class="section-title"><span class="num">4</span>Estrategias metodológicas</h2>
+      <div class="grid2">
+        <div>
+          <div class="biblio-cat">Enseñanza y aprendizaje</div>
+          <ul class="plain"><li>Videoconferencias, foros de debate, chat en línea y diapositivas.</li><li>Aprendizaje basado en problemas, casos y proyectos.</li><li>Investigación activa y seminarios / semilleros de investigación.</li></ul>
+        </div>
+        <div>
+          <div class="biblio-cat">Investigación y virtualidad</div>
+          <ul class="plain"><li>Navegación web para investigación y plataformas Zoom / Moodle / G-Suite.</li><li>Redes sociales (YouTube, Facebook, WhatsApp) como apoyo de aprendizaje.</li><li>Software Cisco Packet Tracer para talleres de simulación.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluacion">
+      <h2 class="section-title"><span class="num">5</span>Evaluación del aprendizaje</h2>
+      <table class="eval">
+        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
+        <tr><td>I</td><td>Condiciones técnicas y arquitectónicas de redes informáticas y teleprocesamiento.</td><td>Evidencia Unidad 1 (100%)</td><td>50%</td></tr><tr><td>II</td><td>Diseño arquitectónico lógico y protocolar en capas OSI/TCP-IP.</td><td>Evidencia Unidad 2 (100%)</td><td>50%</td></tr>
+      </table>
+      <p class="section-hint" style="margin-top:16px;">Fórmula de calificación</p>
+      <div class="formula">Promedio parcial Unidad 1 = 40% (Evidencia 1) + 60% (Evidencia 2)<br>
+Promedio parcial Unidad 2 = 30% (Evidencia 1) + 20% (Evidencia 2) + 50% (Evidencia 3)<br>
+<b>Promedio final = 50% (Promedio parcial Unidad 1) + 50% (Promedio parcial Unidad 2)</b></div>
+    </section>
+
+    <section id="bibliografia">
+      <h2 class="section-title"><span class="num">6</span>Fuentes de información</h2>
+      <div class="biblio-cat">Básica</div><ul class="plain"><li>Apaza T., A. (2002). <i>Redes y Teleproceso</i> (1ª ed.). Lucero Impresiones.</li><li>Domingo, A. A. (2013). <i>Redes locales</i>. McGraw-Hill/Interamericana de España.</li><li>Dordoigne, J. (2015). <i>Redes informáticas - Nociones fundamentales</i> (5ª ed.). Ediciones Eni.</li><li>Font, R., Lara, O., Serral, R. & Vilajosana, X. (2011). <i>Estructura de redes de computadores</i>. UOC.</li><li>Herrera, E. (2004). <i>Introducción a las telecomunicaciones modernas</i>. Limusa.</li><li>Pérez, S. & Facchini, H. (2017). <i>Dispositivos y protocolos de redes LAN y WAN</i>. UTN Regional Mendoza.</li><li>Stallings, W. (2004). <i>Comunicaciones y redes de computadores</i> (7ª ed.). Pearson.</li><li>Tanenbaum, A. & Wetherall, D. (2012). <i>Redes de computadoras</i> (5ª ed.). Pearson.</li></ul><div class="biblio-cat">Complementaria</div><ul class="plain"><li>Carballar, J. (2005). <i>Wi-Fi: Cómo construir una red inalámbrica</i>. AlfaOmega.</li><li>Carballar, J. (2007). <i>Wi-Fi: Instalación, seguridad y aplicaciones</i>. AlfaOmega-Rama.</li><li>Huidobro, J. M. (2001). <i>Redes y servicios de telecomunicaciones</i>. Paraninfo.</li><li>Tomasi, W. (2003). <i>Sistemas de comunicación electrónicas</i> (4ª ed.). Pearson.</li></ul><div class="biblio-cat">Electrónica</div><ul class="plain"><li>Liberatori, M. C. (2018). <i>Redes de datos y sus protocolos</i>. EUDEM.</li><li>GSMA (2017). Emisión electromagnética de la tecnología 5G, IoT y accesorios tecnológicos.</li></ul>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <div><span class="badge-dot"></span>Alejandro Apaza Tarqui &middot; Ing. Estadístico, Sistemas e Informática · Nombrado, Profesor Principal</div>
+    <div>UNA Puno &middot; Semestre 2026-I &middot; Ciclo VI</div>
+  </div>
+
+</div>
+</body>
+</html>

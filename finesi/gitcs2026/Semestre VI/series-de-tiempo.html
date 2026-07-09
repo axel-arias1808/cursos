@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
+<title>Series de Tiempo · UNA Puno</title>
+<meta name="description" content="Sílabo del curso Series de Tiempo - Facultad de Ingeniería Estadística e Informática - UNA Puno"/>
+<style>
+:root{
+  --accent: #b91c1c;
+  --accent-soft: #ef4444;
+  --bg: #060913;
+  --card: #ffffff;
+  --ink: #12141c;
+  --muted: #5b6072;
+  --line: #e7e8ee;
+  --chip: #f4f5fa;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background: radial-gradient(1200px 600px at 10% -10%, #10162b 0%, var(--bg) 55%);
+  font-family: 'Source Sans Pro', -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--ink);
+  padding: 32px 18px 60px;
+}
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,.55);
+}
+.hero{
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+  color: #fff;
+  padding: 46px 44px 34px;
+  position: relative;
+}
+.hero .eyebrow{
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12.5px;
+  font-weight: 700;
+  opacity: .85;
+  margin: 0 0 10px;
+}
+.hero h1{
+  margin: 0 0 6px;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.hero .sub{
+  font-size: 15.5px;
+  opacity: .92;
+  margin: 0 0 22px;
+  max-width: 640px;
+}
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
+}
+.nav{
+  display:flex; flex-wrap:wrap; gap: 2px;
+  background: var(--chip);
+  padding: 10px 44px;
+  border-bottom: 1px solid var(--line);
+  position: sticky; top:0; z-index: 5;
+}
+.nav a{
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+.nav a:hover{ color: var(--accent); background: #fff; }
+.content{ padding: 40px 44px 50px; }
+section{ margin-bottom: 42px; scroll-margin-top: 60px; }
+h2.section-title{
+  font-size: 22px;
+  margin: 0 0 4px;
+  color: var(--ink);
+  display:flex; align-items:center; gap:10px;
+}
+h2.section-title .num{
+  width: 30px; height:30px; border-radius: 9px;
+  background: var(--accent-soft); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 14px; font-weight:700;
+}
+.section-hint{ color: var(--muted); font-size: 13.5px; margin: 0 0 18px; }
+p.lead{ line-height: 1.7; color: #2b2e3a; font-size: 15.5px; text-align: justify; }
+.unit{
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.unit-head{
+  background: var(--chip);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.unit-head .tag{
+  color: var(--accent); font-weight: 700; font-size: 12.5px;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.unit-head h3{ margin: 4px 0 6px; font-size: 18px; }
+.unit-head .goal{ margin:0; color: var(--muted); font-size: 13.8px; line-height:1.5; }
+.unit-meta{ display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
+.unit-meta span{ font-size: 12.5px; color: var(--muted); font-weight:600; }
+.weeks{ padding: 6px 20px 18px; }
+.week{
+  display:grid;
+  grid-template-columns: 70px 1fr;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.week:last-child{ border-bottom:none; }
+.week .wnum{
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 13px;
+  padding-top: 2px;
+}
+.week .wbody b{ display:block; font-size: 14.3px; margin-bottom:2px; color: var(--ink); }
+.week .wbody .know{ font-size: 13.3px; color: var(--muted); line-height:1.5; }
+.week .wbody .ev{
+  display:inline-block; margin-top:6px; font-size: 11.8px;
+  background: var(--accent-soft); color:#fff; padding: 3px 9px; border-radius: 999px; font-weight:700;
+}
+table.eval{ width:100%; border-collapse: collapse; margin-top: 6px; font-size: 13.6px;}
+table.eval th{
+  text-align:left; background: var(--chip); padding: 10px 12px;
+  border-bottom: 2px solid var(--accent-soft); font-size: 12.3px;
+  text-transform: uppercase; letter-spacing:.04em; color: var(--muted);
+}
+table.eval td{ padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; color:#2b2e3a;}
+table.eval tr:last-child td{ border-bottom:none; }
+.formula{
+  background: var(--chip); border-left: 3px solid var(--accent-soft);
+  padding: 14px 18px; border-radius: 8px; font-size: 13.6px; line-height:1.7; color:#2b2e3a;
+}
+ul.plain{ margin: 8px 0 0; padding-left: 20px; }
+ul.plain li{ margin-bottom: 7px; font-size: 14px; line-height:1.55; color:#2b2e3a; }
+.grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media (max-width: 720px){ .grid2{ grid-template-columns: 1fr; } .hero{padding:34px 24px 26px;} .content{padding:28px 24px 40px;} .nav{padding:10px 20px;} .week{grid-template-columns: 46px 1fr;} }
+.biblio-cat{ font-weight:700; color: var(--accent); font-size:13px; text-transform:uppercase; letter-spacing:.05em; margin: 16px 0 6px; }
+.biblio-cat:first-child{ margin-top:0; }
+.footer{
+  padding: 26px 44px 34px; border-top: 1px solid var(--line);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  color: var(--muted); font-size: 12.8px;
+}
+.footer a{ color: var(--accent); text-decoration:none; font-weight:600;}
+.badge-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background: var(--accent-soft); margin-right:7px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Facultad de Ingeniería Estadística e Informática &middot; UNA Puno</p>
+    <h1>Series de Tiempo</h1>
+    <p class="sub">Modelos univariantes de pronóstico bajo la metodología Box-Jenkins, desde suavizamiento hasta SARIMA, GARCH y redes neuronales, orientados a la toma de decisiones.</p>
+    <div class="chips"><div class="chip">Ciclo VI</div><div class="chip">4 créditos</div><div class="chip">5 h/semana (3T+2P)</div><div class="chip">Presencial</div><div class="chip">Aula 205 · Pabellón Antiguo</div></div>
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a>
+    <a href="#logro">Logro</a>
+    <a href="#contenido">Contenido</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#evaluacion">Evaluación</a>
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <div class="content">
+
+    <section id="sumilla">
+      <h2 class="section-title"><span class="num">1</span>Sumilla</h2>
+      <p class="lead">El curso corresponde al área de estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito desarrollar habilidades y destrezas para obtener modelos univariantes orientados a la toma de decisiones. Se organiza en dos unidades: la primera aborda métodos de suavizamiento, técnicas de descomposición y modelos lineales estacionarios (AR, MA, ARMA) y no estacionarios (ARIMA); la segunda aborda modelos estacionales (SAR, SMA, SARMA, SARIMA), modelos heterocedásticos (ARCH, GARCH), modelos multivariantes y modelos de redes neuronales para series temporales.</p>
+    </section>
+
+    <section id="logro">
+      <h2 class="section-title"><span class="num">2</span>Logro de aprendizaje del curso</h2>
+      <p class="lead">El estudiante demuestra una actitud responsable y ética en la producción de pronósticos para la toma de decisiones que resuelvan problemas de realidades en investigación, aplicando la metodología Box-Jenkins en sus distintas etapas.</p>
+    </section>
+
+    <section id="contenido">
+      <h2 class="section-title"><span class="num">3</span>Contenido temático</h2>
+      <p class="section-hint">Distribución semanal organizada en dos unidades didácticas.</p>
+      
+    <div class="unit">
+      <div class="unit-head">
+        <div class="tag">Unidad 1</div>
+        <h3>Modelos lineales estacionarios y no estacionarios</h3>
+        <p class="goal">Produce información de pronósticos mediante la metodología Box-Jenkins con los modelos AR, MA, ARMA y ARIMA para realidades en investigación orientada a la toma de decisiones.</p>
+        <div class="unit-meta">
+          <span>&#128197; 30 mar – 1 jun 2026</span>
+          <span>&#9200; 45 horas</span>
+          <span>&#128202; Avance: 50%</span>
+        </div>
+      </div>
+      <div class="weeks">
+        
+        <div class="week">
+          <div class="wnum">Semana 1</div>
+          <div class="wbody">
+            <b>Introducción a las series de tiempo</b>
+            <div class="know">Concepto, componentes (tendencia, estacionalidad, ciclo, ruido) y aplicaciones de la serie de tiempo en la investigación.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 2</div>
+          <div class="wbody">
+            <b>Métodos de suavizamiento</b>
+            <div class="know">Medias móviles y suavizamiento exponencial simple, doble y de Holt-Winters.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 3</div>
+          <div class="wbody">
+            <b>Descomposición de series</b>
+            <div class="know">Descomposición clásica aditiva y multiplicativa; identificación de patrones.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 4</div>
+          <div class="wbody">
+            <b>Estacionariedad</b>
+            <div class="know">Pruebas de raíz unitaria (ADF, KPSS), diferenciación y funciones de autocorrelación (ACF) y autocorrelación parcial (PACF).</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 5</div>
+          <div class="wbody">
+            <b>Modelos autorregresivos (AR)</b>
+            <div class="know">Identificación, estimación e interpretación de modelos AR(p).</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 6</div>
+          <div class="wbody">
+            <b>Modelos de medias móviles (MA)</b>
+            <div class="know">Identificación, estimación e interpretación de modelos MA(q).</div>
+            <span class="ev">Evidencia 1 · Etapas 1, 2 y 3 del modelamiento lineal (50%)</span>
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 7</div>
+          <div class="wbody">
+            <b>Modelos ARMA</b>
+            <div class="know">Combinación de componentes AR y MA; criterios de identificación (AIC, BIC).</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 8</div>
+          <div class="wbody">
+            <b>Modelos ARIMA</b>
+            <div class="know">Metodología Box-Jenkins: identificación, estimación y diagnóstico de modelos ARIMA(p,d,q).</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 9</div>
+          <div class="wbody">
+            <b>Modelos SARIMA</b>
+            <div class="know">Extensión estacional del modelo ARIMA; validación de residuos (ruido blanco, Ljung-Box).</div>
+            <span class="ev">Evidencia 2 · Modelos SARIMA (50%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="unit">
+      <div class="unit-head">
+        <div class="tag">Unidad 2</div>
+        <h3>Modelos estacionales, heterocedásticos y multivariantes</h3>
+        <p class="goal">Produce información de pronósticos mediante la metodología Box-Jenkins, redes neuronales, modelo SARIMA y modelos heterocedásticos ARCH y GARCH para realidades en investigación orientada a la toma de decisiones.</p>
+        <div class="unit-meta">
+          <span>&#128197; 1 jun – 31 jul 2026</span>
+          <span>&#9200; 45 horas</span>
+          <span>&#128202; Avance: 50%</span>
+        </div>
+      </div>
+      <div class="weeks">
+        
+        <div class="week">
+          <div class="wnum">Semana 10</div>
+          <div class="wbody">
+            <b>Modelos SAR, SMA y SARMA</b>
+            <div class="know">Componentes estacionales puros y mixtos; identificación en ACF/PACF estacional.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 11</div>
+          <div class="wbody">
+            <b>Aplicación de modelos estacionales</b>
+            <div class="know">Casos aplicados de SARIMA a series reales de investigación.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 12</div>
+          <div class="wbody">
+            <b>Diagnóstico y validación de modelos</b>
+            <div class="know">Análisis de residuos, pruebas de normalidad y de autocorrelación.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 13</div>
+          <div class="wbody">
+            <b>Pronósticos e intervalos de confianza</b>
+            <div class="know">Cálculo de pronósticos puntuales e intervalos de predicción.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 14</div>
+          <div class="wbody">
+            <b>Modelos heterocedásticos ARCH</b>
+            <div class="know">Identificación de heterocedasticidad condicional (prueba ARCH-LM) y estimación ARCH(q).</div>
+            <span class="ev">Evidencia 3 · Modelos heterocedásticos (50%)</span>
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 15</div>
+          <div class="wbody">
+            <b>Modelos GARCH</b>
+            <div class="know">Extensión generalizada de la volatilidad condicional; estimación e interpretación.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 16</div>
+          <div class="wbody">
+            <b>Modelos multivariantes (VAR)</b>
+            <div class="know">Series de tiempo con variables exógenas y modelos vectoriales autorregresivos.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 17</div>
+          <div class="wbody">
+            <b>Redes neuronales para series de tiempo</b>
+            <div class="know">Introducción a enfoques de pronóstico basados en redes neuronales (RNN/LSTM).</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 18</div>
+          <div class="wbody">
+            <b>Integración final</b>
+            <div class="know">Consolidación del modelo de pronóstico con variables exógenas y multivariadas.</div>
+            <span class="ev">Evidencia 4 · Variables exógenas y multivariadas (50%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section id="metodologia">
+      <h2 class="section-title"><span class="num">4</span>Estrategias metodológicas</h2>
+      <div class="grid2">
+        <div>
+          <div class="biblio-cat">Enseñanza y aprendizaje</div>
+          <ul class="plain"><li>Exposición oral con diapositivas y recursos audiovisuales.</li><li>Demostraciones con software estadístico y herramientas de IA.</li><li>Análisis de casos de la realidad regional y nacional.</li></ul>
+        </div>
+        <div>
+          <div class="biblio-cat">Investigación y virtualidad</div>
+          <ul class="plain"><li>Aprendizaje basado en proyectos: informes progresivos de pronósticos.</li><li>Aprendizaje basado en problemas y por descubrimiento.</li><li>Uso de plataformas LMS, videoconferencias y recursos digitales interactivos.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluacion">
+      <h2 class="section-title"><span class="num">5</span>Evaluación del aprendizaje</h2>
+      <table class="eval">
+        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
+        <tr><td>I</td><td>Modelos AR, MA, ARMA, ARIMA bajo metodología Box-Jenkins.</td><td>Evidencia 1 (50%) + Evidencia 2 (50%)</td><td>50%</td></tr><tr><td>II</td><td>Modelos SARIMA, redes neuronales y modelos heterocedásticos ARCH/GARCH.</td><td>Evidencia 3 (50%) + Evidencia 4 (50%)</td><td>50%</td></tr>
+      </table>
+      <p class="section-hint" style="margin-top:16px;">Fórmula de calificación</p>
+      <div class="formula">Promedio parcial Unidad 1 = 50% (Evidencia 1) + 50% (Evidencia 2)<br>
+Promedio parcial Unidad 2 = 50% (Evidencia 1) + 50% (Evidencia 2)<br>
+<b>Promedio final = 50% (Promedio parcial Unidad 1) + 50% (Promedio parcial Unidad 2)</b></div>
+    </section>
+
+    <section id="bibliografia">
+      <h2 class="section-title"><span class="num">6</span>Fuentes de información</h2>
+      <div class="biblio-cat">Básica</div><ul class="plain"><li>Guerrero, V. M. (2014). <i>Análisis estadístico y pronóstico de series de tiempo económicas</i> (3ª ed.). Jit Press.</li><li>Hanke, J. E. & Wichern, D. W. (2006). <i>Pronóstico en los negocios</i> (8ª ed.). Prentice Hall.</li><li>Uriel, E. (1985). <i>Análisis de series temporales</i>. Paraninfo.</li><li>Peña, D. & Sánchez, D. (2000). <i>Estadística, modelos y métodos: modelos lineales y series temporales</i> (2ª ed.).</li><li>Wooldridge, J. (2006). <i>Introducción a la econometría</i> (2ª ed.). Paraninfo.</li></ul><div class="biblio-cat">Complementaria</div><ul class="plain"><li>Gujarati, D. (2004). <i>Econometría</i> (4ª ed.). McGraw Hill.</li><li>Monteverde, E. & Rengifo, E. (2011). <i>Estadísticas y econometría financiera</i>. CENGAGE.</li><li>Pérez, C. (2008). <i>Econometría Avanzada, técnicas y herramientas</i>. Pearson.</li><li>Ramos, A. et al. (2016). <i>Series de Tiempo: software de análisis con EViews</i>. Editorial Altiplano.</li></ul><div class="biblio-cat">Electrónica</div><ul class="plain"><li>machinelearningmastery.com — ARIMA for Time Series Forecasting with Python.</li><li>analyticsvidhya.com — Auto ARIMA Time Series Modeling in Python/R.</li><li>machinelearningmastery.com — ARCH and GARCH Models for Time Series Forecasting.</li></ul>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <div><span class="badge-dot"></span>César Augusto Lluén Vallejos &middot; Lic. en Estadística · Nombrado, Principal a D.E.</div>
+    <div>UNA Puno &middot; Semestre 2026-I &middot; Ciclo VI</div>
+  </div>
+
+</div>
+</body>
+</html>
