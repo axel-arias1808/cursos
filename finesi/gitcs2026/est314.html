@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<title>EST314 - Aprendizaje No Supervisado | FIEI-UNAP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="aprendizaje no supervisado, clustering, k-means, PCA, reglas de asociación, machine learning, ciencia de datos" />
+<meta name="description" content="Sílabo del curso Aprendizaje No Supervisado - EST314 - Ingeniería Estadística e Informática - UNAP Puno 2026-I" />
+<style>
+  body { font-family: 'Source Sans Pro', Arial, sans-serif; background-color: #060913; margin: 0; padding: 0; }
+  .wrapper { padding: 25px; }
+  .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 20px 40px 40px 40px; }
+  h1 { font-size: 34px; margin-bottom: 4px; }
+  .meta { font-size: 15px; color: #444; margin-bottom: 4px; line-height: 1.7; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+  h2 { font-size: 18px; margin-top: 0; border-bottom: 2px solid #3a6fdb; padding-bottom: 4px; color: #1a1a2e; }
+  p { font-size: 15px; color: #333; text-align: justify; line-height: 1.6; }
+  ul { font-size: 15px; color: #333; line-height: 1.8; }
+  ul li b { color: #1a1a2e; }
+  .nav { font-size: 14px; margin-bottom: 16px; }
+  .nav a { color: #3a6fdb; text-decoration: none; margin-right: 10px; }
+  .nav a:hover { text-decoration: underline; }
+  .back { font-size: 13px; color: #3a6fdb; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+  .back:hover { text-decoration: underline; }
+  .unit-box { background: #f5f8ff; border-left: 4px solid #3a6fdb; padding: 12px 18px; margin-bottom: 18px; border-radius: 0 6px 6px 0; }
+  .unit-box h3 { margin: 0 0 6px 0; font-size: 16px; color: #1a1a2e; }
+  .unit-box p { margin: 2px 0; text-align: left; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+  th { background: #3a6fdb; color: #fff; padding: 8px 10px; text-align: left; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f9ff; }
+  footer { text-align: center; font-size: 13px; color: #aaa; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="container">
+
+  <a class="back" href="index.html">← Volver al índice de cursos</a>
+
+  <h1>Aprendizaje No Supervisado</h1>
+  <div class="meta">
+    Ingeniería Estadística e Informática &nbsp;|&nbsp; Facultad de Ingeniería Estadística e Informática<br>
+    Universidad Nacional del Altiplano &mdash; Puno
+  </div>
+  <div class="meta">
+    <b>Código:</b> EST314 &nbsp;|&nbsp; <b>Ciclo:</b> VI &nbsp;|&nbsp; <b>Créditos:</b> 4<br>
+    <b>Horas:</b> 3 teóricas, 2 prácticas | Total: 5 horas &nbsp;|&nbsp; <b>Área:</b> Estudios de especialidad<br>
+    <b>Semestre:</b> 2026-I &nbsp;|&nbsp; <b>Duración:</b> 30 de Marzo al 31 de Julio del 2026<br>
+    <b>Prerrequisito:</b> EST312 - Estadística Computacional
+  </div>
+  <div class="meta">
+    <b>Docente:</b> Alemán Gonzales Leonid &nbsp;|&nbsp; Nombrado-ordinario, Profesor Asociado<br>
+    <b>Especialidad:</b> Ingeniería de Software / Ciencia de Datos<br>
+    <b>Aula:</b> Aula 201 / Pabellón A y Laboratorio 02
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a> |
+    <a href="#logro">Logro</a> |
+    <a href="#unidad1">Unidad I</a> |
+    <a href="#unidad2">Unidad II</a> |
+    <a href="#metodologia">Metodología</a> |
+    <a href="#evaluacion">Evaluación</a> |
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <hr/>
+
+  <h2 id="sumilla">Sumilla</h2>
+  <p>El curso de Aprendizaje No Supervisado corresponde al área curricular de estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre un conjunto de datos y sus aplicaciones. Su contenido está organizado en:</p>
+  <ul>
+    <li><b>Unidad I:</b> Metodología, técnicas de preprocesamiento y reducción de dimensionalidad en variables de problemas de aplicación.</li>
+    <li><b>Unidad II:</b> Técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="logro">Logro de Aprendizaje del Curso</h2>
+  <p>Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones: Metodología, Reducción de dimensionalidad, Agrupamiento y Reglas de decisiones.</p>
+
+  <hr/>
+
+  <h2 id="unidad1">Unidad I — Preprocesamiento y Reducción de Dimensionalidad</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Aplica adecuadamente las metodologías, técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.</p>
+    <p><b>Duración:</b> 30 de Marzo al 1 de Junio del 2026 (Total 45 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semana</th><th>Contenido</th></tr>
+    <tr><td>1</td><td>Introducción al aprendizaje automático, tipos y aplicaciones. Aprendizaje no supervisado.</td></tr>
+    <tr><td>2</td><td>Metodología para proyectos de aprendizaje automático no supervisado, flujo y elementos de trabajo.</td></tr>
+    <tr><td>3</td><td>Preprocesamiento, preparación, limpieza y transformación de datos. Codificación de variables.</td></tr>
+    <tr><td>4</td><td>Data Wrangling e ingeniería de características (Feature Engineering).</td></tr>
+    <tr><td>5</td><td>Reducción de dimensionalidad: métodos lineales y no lineales. PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE.</td></tr>
+    <tr><td>6</td><td>Reducción de dimensionalidad basada en redes neuronales. <b>(Evaluación 50%)</b></td></tr>
+    <tr><td>7</td><td>Reducción de dimensionalidad probabilística y basada en grafos. Factor análisis, GP-LVM, Laplacian Eigenmaps.</td></tr>
+    <tr><td>8</td><td>Técnicas avanzadas de extracción de características: SimCLR, Isolation Forest, One-class SVM.</td></tr>
+    <tr><td>9</td><td>Avance del proyecto de aplicación — Evaluación parcial de reducción de dimensionalidad. <b>(50%)</b></td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="unidad2">Unidad II — Agrupamiento y Reglas de Asociación</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Aplica adecuadamente técnicas de agrupamiento, reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
+    <p><b>Duración:</b> 1 de Junio al 31 de Julio del 2026 (Total 45 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semana</th><th>Contenido</th></tr>
+    <tr><td>10</td><td>Agrupamiento (clustering): concepto de distancia, métodos particionales — K-Means, K-Medoids.</td></tr>
+    <tr><td>11</td><td>Métodos jerárquicos (Agglomerative Clustering), métodos basados en densidad: DBSCAN, HDBSCAN.</td></tr>
+    <tr><td>12</td><td>Métodos basados en modelos probabilísticos: Gaussian Mixture Model. Spectral Clustering.</td></tr>
+    <tr><td>13</td><td>Clustering difuso (Fuzzy C-Means), subespacios (CLIQUE, PROCLUS), Deep Embedded Clustering (DEC).</td></tr>
+    <tr><td>14</td><td>Reglas de asociación: métricas (support, confidence, conviction, Jaccard). Algoritmos A-Priori, FP-Growth, Eclat.</td></tr>
+    <tr><td>15</td><td>Variantes: asociación ponderada, negativa, secuencial. Algoritmos PrefixSpan, SPADE. <b>(Evaluación 50%)</b></td></tr>
+    <tr><td>16</td><td>Enfoques avanzados: datos continuos, Big Data, basados en grafos y aprendizaje profundo.</td></tr>
+    <tr><td>17</td><td>Integración y revisión del proyecto final.</td></tr>
+    <tr><td>18</td><td>Presentación y defensa del proyecto. <b>(Evaluación final 50%)</b></td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="metodologia">Estrategias Metodológicas</h2>
+  <ul>
+    <li>Videoconferencias, foros de discusión y actividades asíncronas en plataforma LMS.</li>
+    <li>Uso de Google Colab y Jupyter Notebook para programación en Python y R.</li>
+    <li>Análisis de textos y artículos científicos (IEEE, APA).</li>
+    <li>Resolución de casos y exposición de propuestas de solución.</li>
+    <li>Desarrollo de proyectos aplicados a problemas reales de la región.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="evaluacion">Evaluación</h2>
+  <table>
+    <tr><th>Unidad</th><th>Evidencia</th><th>Peso en unidad</th></tr>
+    <tr><td>I</td><td>Evaluación de técnicas básicas ANS</td><td>50%</td></tr>
+    <tr><td>I</td><td>Evaluación parcial de reducción de dimensionalidad</td><td>50%</td></tr>
+    <tr><td>II</td><td>Evaluación de técnicas avanzadas de agrupamiento</td><td>50%</td></tr>
+    <tr><td>II</td><td>Evaluación final de Aprendizaje No Supervisado</td><td>50%</td></tr>
+  </table>
+  <p style="margin-top:10px;"><b>Promedio final</b> = 50% (Unidad I) + 50% (Unidad II)</p>
+
+  <hr/>
+
+  <h2 id="bibliografia">Bibliografía</h2>
+  <ul>
+    <li>Goodfellow, I. &amp; Bengio, Y. (2016). <i>Deep Learning</i>. MIT Press.</li>
+    <li>Bishop, C. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer.</li>
+    <li>Hastie, T., Tibshirani, R. &amp; Friedman, J. (2014). <i>The Elements of Statistical Learning</i>. 2da ed. Springer.</li>
+    <li>Theodoridis, S. (2017). <i>Machine Learning: A Bayesian and Optimization Perspective</i>. Elsevier.</li>
+    <li><a href="https://realpython.com/tutorials/machine-learning/" target="_blank">Python Machine Learning Tutorials — Real Python</a></li>
+  </ul>
+
+  <hr/>
+  <footer>&copy; 2026 FIEI &mdash; Ingeniería Estadística e Informática &mdash; UNA Puno</footer>
+
+</div>
+</div>
+</body>
+</html>

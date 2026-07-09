@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<title>EST210 - Modelos Lineales | FIEI-UNAP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="modelos lineales, formas cuadráticas, regresión, ANOVA, rango completo, rango no completo, estadística" />
+<meta name="description" content="Sílabo del curso Modelos Lineales - EST210 - Ingeniería Estadística e Informática - UNAP Puno 2026-I" />
+<style>
+  body { font-family: 'Source Sans Pro', Arial, sans-serif; background-color: #060913; margin: 0; padding: 0; }
+  .wrapper { padding: 25px; }
+  .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 20px 40px 40px 40px; }
+  h1 { font-size: 34px; margin-bottom: 4px; }
+  .meta { font-size: 15px; color: #444; margin-bottom: 4px; line-height: 1.7; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+  h2 { font-size: 18px; margin-top: 0; border-bottom: 2px solid #3a6fdb; padding-bottom: 4px; color: #1a1a2e; }
+  p { font-size: 15px; color: #333; text-align: justify; line-height: 1.6; }
+  ul { font-size: 15px; color: #333; line-height: 1.8; }
+  ul li b { color: #1a1a2e; }
+  .nav { font-size: 14px; margin-bottom: 16px; }
+  .nav a { color: #3a6fdb; text-decoration: none; margin-right: 10px; }
+  .nav a:hover { text-decoration: underline; }
+  .back { font-size: 13px; color: #3a6fdb; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+  .back:hover { text-decoration: underline; }
+  .unit-box { background: #f5f8ff; border-left: 4px solid #3a6fdb; padding: 12px 18px; margin-bottom: 18px; border-radius: 0 6px 6px 0; }
+  .unit-box h3 { margin: 0 0 6px 0; font-size: 16px; color: #1a1a2e; }
+  .unit-box p { margin: 2px 0; text-align: left; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+  th { background: #3a6fdb; color: #fff; padding: 8px 10px; text-align: left; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f9ff; }
+  footer { text-align: center; font-size: 13px; color: #aaa; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="container">
+
+  <a class="back" href="index.html">← Volver al índice de cursos</a>
+
+  <h1>Modelos Lineales</h1>
+  <div class="meta">
+    Ingeniería Estadística e Informática &nbsp;|&nbsp; Facultad de Ingeniería Estadística e Informática<br>
+    Universidad Nacional del Altiplano &mdash; Puno
+  </div>
+  <div class="meta">
+    <b>Código:</b> EST210 &nbsp;|&nbsp; <b>Ciclo:</b> VI &nbsp;|&nbsp; <b>Créditos:</b> 5<br>
+    <b>Horas:</b> 4 teóricas, 2 prácticas | Total: 6 horas &nbsp;|&nbsp; <b>Área:</b> Estudios de especialidad<br>
+    <b>Semestre:</b> 2026-I &nbsp;|&nbsp; <b>Duración:</b> 30 de Marzo al 31 de Julio del 2026<br>
+    <b>Prerrequisito:</b> EST307 - Modelos Discretos
+  </div>
+  <div class="meta">
+    <b>Docente:</b> Dr. Morillos Valderrama Santos Octavio &nbsp;|&nbsp; Nombrado, Principal D.E.<br>
+    <b>Especialidad:</b> Doctor en Estadística e Informática<br>
+    <b>Aula:</b> 205, Pabellón antiguo
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a> |
+    <a href="#logro">Logro</a> |
+    <a href="#unidad1">Unidad I</a> |
+    <a href="#unidad2">Unidad II</a> |
+    <a href="#metodologia">Metodología</a> |
+    <a href="#evaluacion">Evaluación</a> |
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <hr/>
+
+  <h2 id="sumilla">Sumilla</h2>
+  <p>El curso de Modelos Lineales pertenece al área curricular de estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito contribuir en forma significativa en la solución de problemas de la vida real, dando lugar a la formalización y rápido perfeccionamiento de los modelos matemáticos debido al avance de la tecnología. La asignatura está dividida en dos unidades didácticas:</p>
+  <ul>
+    <li><b>Unidad I:</b> Distribución de formas cuadráticas y Modelos de rango completo.</li>
+    <li><b>Unidad II:</b> Modelos de correlación y Modelos de rango no completo.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="logro">Logro de Aprendizaje del Curso</h2>
+  <p>Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.</p>
+
+  <hr/>
+
+  <h2 id="unidad1">Unidad I — Distribución de Formas Cuadráticas y Modelos de Rango Completo</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
+    <p><b>Duración:</b> 30 de Marzo al 1 de Junio del 2026 (Total 54 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semana</th><th>Contenido</th></tr>
+    <tr><td>1</td><td>Introducción a las formas cuadráticas.</td></tr>
+    <tr><td>2</td><td>Momentos, F central y no central. Otras distribuciones no centrales.</td></tr>
+    <tr><td>3</td><td>Distribuciones e independencia de formas cuadráticas.</td></tr>
+    <tr><td>4</td><td>Modelos de rango completo: estimación con k variables X. Métodos de estimación.</td></tr>
+    <tr><td>5</td><td>Partición de la suma total de cuadrados. Correlación Múltiple. Propiedades distribucionales.</td></tr>
+    <tr><td>6</td><td>Análisis de varianza para modelos de regresión. Intervalos de confianza.</td></tr>
+    <tr><td>7</td><td>Prueba de hipótesis lineal. Cuatro hipótesis comunes. Modelos reducidos.</td></tr>
+    <tr><td>8</td><td>Regresión Polinomial. Estimación de la Respuesta Media. Prueba de la Función Respuesta. <b>(Evidencia 1: Trabajos 50%)</b></td></tr>
+    <tr><td>9</td><td>Polinomios ortogonales. Selección del mejor conjunto de variables independientes. <b>(Evidencia 2: Examen escrito 50%)</b></td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="unidad2">Unidad II — Correlación y Modelos de Rango No Completo</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple. Distingue las diferencias entre los modelos de rango completo y no completo.</p>
+    <p><b>Duración:</b> 1 de Junio al 31 de Julio del 2026 (Total 54 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semana</th><th>Contenido</th></tr>
+    <tr><td>10</td><td>Modelos de correlación. Pruebas de hipótesis. Correlación Parcial y Múltiple.</td></tr>
+    <tr><td>11</td><td>Modelos de Análisis de Varianza. Clasificaciones cruzadas y anidadas. Matriz Inversa Generalizada.</td></tr>
+    <tr><td>12</td><td>Modelos de rango no completo. Clasificación a un criterio. Pruebas de hipótesis.</td></tr>
+    <tr><td>13</td><td>Funciones estimables. Intervalos de confianza. Prueba de estimabilidad.</td></tr>
+    <tr><td>14</td><td>Hipótesis Lineal General. Análisis de varianza. Contrastes independientes y ortogonales.</td></tr>
+    <tr><td>15</td><td>Modelo de clasificación a un criterio: funciones estimables e intervalos de confianza.</td></tr>
+    <tr><td>16</td><td>Modelo de clasificación anidada a dos criterios. Funciones estimables. Pruebas de hipótesis.</td></tr>
+    <tr><td>17</td><td>Clasificación cruzada a dos criterios sin interacción. Análisis de varianza. <b>(Evidencia 3: Trabajos 50%)</b></td></tr>
+    <tr><td>18</td><td>Modelos balanceados, fijos, aleatorios y mixtos. Análisis de varianza. <b>(Evidencia 4: Examen escrito 50%)</b></td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="metodologia">Estrategias Metodológicas</h2>
+  <ul>
+    <li>Sesiones de clase con exposición teórica por el profesor y por los estudiantes en algunos temas.</li>
+    <li>Asignación de problemas y ejercicios con dinámica de grupos.</li>
+    <li>Trabajo de investigación relacionado con el curso al finalizar el semestre.</li>
+    <li>Uso de aulas virtuales: Classroom, Webex o Meet.</li>
+    <li>Investigación diagnóstica aplicada a una IES estatal de Puno.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="evaluacion">Evaluación</h2>
+  <table>
+    <tr><th>Unidad</th><th>Evidencia</th><th>Peso en unidad</th></tr>
+    <tr><td>I</td><td>Evidencia 1: Trabajos</td><td>50%</td></tr>
+    <tr><td>I</td><td>Evidencia 2: Examen escrito</td><td>50%</td></tr>
+    <tr><td>II</td><td>Evidencia 3: Trabajos</td><td>50%</td></tr>
+    <tr><td>II</td><td>Evidencia 4: Examen escrito</td><td>50%</td></tr>
+  </table>
+  <p style="margin-top:10px;"><b>Promedio final</b> = 50% (Unidad I) + 50% (Unidad II)</p>
+
+  <hr/>
+
+  <h2 id="bibliografia">Bibliografía</h2>
+  <ul>
+    <li>Graybill, F. (1961). <i>An Introduction to Linear Statistical Models, Vol I</i>. McGraw-Hill.</li>
+    <li>Searle, S. &amp; Gruber, M. (2017). <i>Linear Models</i>, 2da edición. John Wiley. New Jersey.</li>
+    <li>Fahrmeir, L., Kneib, T., Lang, S. &amp; Marx, B. (2013). <i>Regression</i>. Springer. New York.</li>
+    <li>Montgomery, D., Peck, E. &amp; Vining, G. (2006). <i>Introducción al Análisis de Regresión Lineal</i>, 3ra edición. Cía. Editorial Continental.</li>
+    <li>Hair, J. et al. (1999). <i>Análisis Multivariante</i>, 5ta edición. Prentice Hall. Madrid.</li>
+    <li>Rencher, A. &amp; Schaalje, B. (2008). <i>Linear Models in Statistics</i>, 2da edición. John Wiley. New Jersey.</li>
+  </ul>
+
+  <hr/>
+  <footer>&copy; 2026 FIEI &mdash; Ingeniería Estadística e Informática &mdash; UNA Puno</footer>
+
+</div>
+</div>
+</body>
+</html>

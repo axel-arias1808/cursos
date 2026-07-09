@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<title>EST317 - Series de Tiempo | FIEI-UNAP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="series de tiempo, ARIMA, SARIMA, ARCH, GARCH, Box-Jenkins, pronósticos, estadística" />
+<meta name="description" content="Sílabo del curso Series de Tiempo - EST317 - Ingeniería Estadística e Informática - UNAP Puno 2026-I" />
+<style>
+  body { font-family: 'Source Sans Pro', Arial, sans-serif; background-color: #060913; margin: 0; padding: 0; }
+  .wrapper { padding: 25px; }
+  .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 20px 40px 40px 40px; }
+  h1 { font-size: 34px; margin-bottom: 4px; }
+  .meta { font-size: 15px; color: #444; margin-bottom: 4px; line-height: 1.7; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+  h2 { font-size: 18px; margin-top: 0; border-bottom: 2px solid #3a6fdb; padding-bottom: 4px; color: #1a1a2e; }
+  p { font-size: 15px; color: #333; text-align: justify; line-height: 1.6; }
+  ul { font-size: 15px; color: #333; line-height: 1.8; }
+  ul li b { color: #1a1a2e; }
+  .nav { font-size: 14px; margin-bottom: 16px; }
+  .nav a { color: #3a6fdb; text-decoration: none; margin-right: 10px; }
+  .nav a:hover { text-decoration: underline; }
+  .back { font-size: 13px; color: #3a6fdb; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+  .back:hover { text-decoration: underline; }
+  .unit-box { background: #f5f8ff; border-left: 4px solid #3a6fdb; padding: 12px 18px; margin-bottom: 18px; border-radius: 0 6px 6px 0; }
+  .unit-box h3 { margin: 0 0 6px 0; font-size: 16px; color: #1a1a2e; }
+  .unit-box p { margin: 2px 0; text-align: left; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+  th { background: #3a6fdb; color: #fff; padding: 8px 10px; text-align: left; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f9ff; }
+  footer { text-align: center; font-size: 13px; color: #aaa; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="container">
+
+  <a class="back" href="index.html">← Volver al índice de cursos</a>
+
+  <h1>Series de Tiempo</h1>
+  <div class="meta">
+    Ingeniería Estadística e Informática &nbsp;|&nbsp; Facultad de Ingeniería Estadística e Informática<br>
+    Universidad Nacional del Altiplano &mdash; Puno
+  </div>
+  <div class="meta">
+    <b>Código:</b> EST317 &nbsp;|&nbsp; <b>Ciclo:</b> VI &nbsp;|&nbsp; <b>Créditos:</b> 4<br>
+    <b>Horas:</b> 3 teóricas, 2 prácticas | Total: 5 horas &nbsp;|&nbsp; <b>Área:</b> Estudios de especialidad<br>
+    <b>Semestre:</b> 2026-I &nbsp;|&nbsp; <b>Duración:</b> 30 de Marzo al 31 de Julio del 2026<br>
+    <b>Prerrequisito:</b> EST208 - Estadística No Paramétrica
+  </div>
+  <div class="meta">
+    <b>Docente:</b> Dr. Lluen Vallejos César Augusto &nbsp;|&nbsp; Nombrado, Principal a D.E.<br>
+    <b>Aula:</b> 205 Pabellón Antiguo
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a> |
+    <a href="#logro">Logro</a> |
+    <a href="#unidad1">Unidad I</a> |
+    <a href="#unidad2">Unidad II</a> |
+    <a href="#metodologia">Metodología</a> |
+    <a href="#evaluacion">Evaluación</a> |
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <hr/>
+
+  <h2 id="sumilla">Sumilla</h2>
+  <p>El curso de Series de Tiempo corresponde al área de estudios de especialidad, es de naturaleza teórica-práctica y tiene como propósito desarrollar habilidades y destrezas para obtener modelos univariantes orientados a la toma de decisiones.</p>
+  <p>El curso se ha organizado en dos unidades didácticas:</p>
+  <ul>
+    <li><b>Primera Unidad:</b> Métodos de suavizamiento, técnicas de descomposición, modelos lineales estacionarios AR, MA, ARMA y no estacionarios (ARIMA).</li>
+    <li><b>Segunda Unidad:</b> Modelos estacionales SAR, SMA, SARMA y SARIMA. Modelos heterocedásticos (ARCH, GARCH). Modelos multivariantes de series temporales y modelos de redes neuronales.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="logro">Logro de Aprendizaje del Curso</h2>
+  <p>El estudiante demostrará una actitud responsable y ética en la producción de pronósticos para la toma de decisiones que resuelvan los problemas de las realidades en investigación.</p>
+
+  <hr/>
+
+  <h2 id="unidad1">Unidad I — Modelos AR, MA, ARMA, ARIMA</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Produce información de pronósticos mediante la metodología Box-Jenkins con los modelos AR, MA, ARMA, ARIMA para realidades en investigación orientada a la toma de decisiones.</p>
+    <p><b>Duración:</b> 30 de Marzo al 1 de Junio del 2026 (Total 45 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semanas</th><th>Evidencias de desempeño</th></tr>
+    <tr><td>1 — 5</td><td>Evidencia 1: Aplica las etapas 1, 2, 3 del modelamiento de series de tiempo lineales. (50%)</td></tr>
+    <tr><td>6 — 9</td><td>Evidencia 2: Aplica modelos SARIMA al análisis de una serie de tiempo. (50%)</td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="unidad2">Unidad II — Modelos Heterocedásticos y Multivariantes</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Produce información de pronósticos mediante la metodología Box-Jenkins y de redes neuronales modelo SARIMA y con modelos heterocedásticos ARCH, GARCH para realidades en investigación orientada a la toma de decisiones.</p>
+    <p><b>Duración:</b> 1 de Junio al 31 de Julio del 2026 (Total 45 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semanas</th><th>Evidencias de desempeño</th></tr>
+    <tr><td>10 — 14</td><td>Evidencia 3: Aplica modelos heterocedásticos a series de tiempo de realidades. (50%)</td></tr>
+    <tr><td>15 — 18</td><td>Evidencia 4: Aplica modelos con variables exógenas y multivariadas a realidades. (50%)</td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="metodologia">Estrategias Metodológicas</h2>
+  <ul>
+    <li>Exposición oral con soporte de diapositivas y recursos audiovisuales.</li>
+    <li>Explicación mediante demostraciones con software estadístico y herramientas de IA.</li>
+    <li>Análisis de casos de la realidad aplicando modelos de series de tiempo.</li>
+    <li>Aprendizaje Basado en Problemas (ABP): resolución de problemas de pronósticos con datos reales.</li>
+    <li>Aprendizaje basado en proyectos: desarrollo progresivo de informes de producción de información de pronósticos.</li>
+    <li>Uso de plataformas LMS, videoconferencias y recursos digitales interactivos.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="evaluacion">Evaluación</h2>
+  <table>
+    <tr><th>Evidencia</th><th>Descripción</th><th>Ponderación</th></tr>
+    <tr><td>EV1</td><td>Aborda un tema de ST de la realidad y explica los aspectos básicos aplicados.</td><td>20%</td></tr>
+    <tr><td>EV2</td><td>Exploración de patrones y análisis clásico de series de tiempo.</td><td>30%</td></tr>
+    <tr><td>EV3</td><td>Obtiene la ecuación de pronósticos válida y confiable (ARIMA).</td><td>50%</td></tr>
+    <tr><td>EV4</td><td>Aplica modelos estacionarios, no estacionarios y estacionales (SARIMA).</td><td>50%</td></tr>
+    <tr><td>EV5</td><td>Aplica modelos heterocedásticos (ARCH, GARCH) a realidades.</td><td>50%</td></tr>
+  </table>
+  <p style="margin-top:10px;"><b>Promedio final</b> = 50% (Unidad I) + 50% (Unidad II)</p>
+
+  <hr/>
+
+  <h2 id="bibliografia">Bibliografía</h2>
+  <ul>
+    <li>Guerrero, V. M. (2014). <i>Análisis estadístico y pronóstico de series de tiempo económicas</i>. 3ra ed. Jit Press. México.</li>
+    <li>Hanke, J. E. &amp; Wichern, D. W. (2006). <i>Pronóstico en los negocios</i>. 8va ed. Prentice Hall. México.</li>
+    <li>Uriel, E. (1985). <i>Análisis de series de temporales</i>. Editorial Paraninfo. España.</li>
+    <li>Ramos, A. et al. (2016). <i>Series de Tiempo: Software de análisis con Eviews</i>. Editorial Altiplano. Puno, Perú.</li>
+    <li>Wooldridge, J. (2006). <i>Introducción a la econometría</i>. Editorial PARANINFO. España.</li>
+    <li><a href="https://machinelearningmastery.com/arima-for-time-series-forecasting-with-python/" target="_blank">ARIMA con Python — Machine Learning Mastery</a></li>
+    <li><a href="https://machinelearningmastery.com/develop-arch-and-garch-models-for-time-series-forecasting-in-python/" target="_blank">ARCH y GARCH en Python — Machine Learning Mastery</a></li>
+  </ul>
+
+  <hr/>
+  <footer>&copy; 2026 FIEI &mdash; Ingeniería Estadística e Informática &mdash; UNA Puno</footer>
+
+</div>
+</div>
+</body>
+</html>

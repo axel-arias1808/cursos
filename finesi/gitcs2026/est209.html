@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<title>EST209 - Regresión Lineal y No Lineal | FIEI-UNAP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="regresión lineal, regresión no lineal, mínimos cuadrados, Doolittle, modelos curvilíneos, regresión Tobit, estadística" />
+<meta name="description" content="Sílabo del curso Regresión Lineal y No Lineal - EST209 - Ingeniería Estadística e Informática - UNAP Puno 2026-I" />
+<style>
+  body { font-family: 'Source Sans Pro', Arial, sans-serif; background-color: #060913; margin: 0; padding: 0; }
+  .wrapper { padding: 25px; }
+  .container { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 20px 40px 40px 40px; }
+  h1 { font-size: 34px; margin-bottom: 4px; }
+  .meta { font-size: 15px; color: #444; margin-bottom: 4px; line-height: 1.7; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+  h2 { font-size: 18px; margin-top: 0; border-bottom: 2px solid #3a6fdb; padding-bottom: 4px; color: #1a1a2e; }
+  p { font-size: 15px; color: #333; text-align: justify; line-height: 1.6; }
+  ul { font-size: 15px; color: #333; line-height: 1.8; }
+  ul li b { color: #1a1a2e; }
+  .nav { font-size: 14px; margin-bottom: 16px; }
+  .nav a { color: #3a6fdb; text-decoration: none; margin-right: 10px; }
+  .nav a:hover { text-decoration: underline; }
+  .back { font-size: 13px; color: #3a6fdb; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+  .back:hover { text-decoration: underline; }
+  .unit-box { background: #f5f8ff; border-left: 4px solid #3a6fdb; padding: 12px 18px; margin-bottom: 18px; border-radius: 0 6px 6px 0; }
+  .unit-box h3 { margin: 0 0 6px 0; font-size: 16px; color: #1a1a2e; }
+  .unit-box p { margin: 2px 0; text-align: left; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+  th { background: #3a6fdb; color: #fff; padding: 8px 10px; text-align: left; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f9ff; }
+  footer { text-align: center; font-size: 13px; color: #aaa; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="container">
+
+  <a class="back" href="index.html">← Volver al índice de cursos</a>
+
+  <h1>Regresión Lineal y No Lineal</h1>
+  <div class="meta">
+    Ingeniería Estadística e Informática &nbsp;|&nbsp; Facultad de Ingeniería Estadística e Informática<br>
+    Universidad Nacional del Altiplano &mdash; Puno
+  </div>
+  <div class="meta">
+    <b>Código:</b> EST209 &nbsp;|&nbsp; <b>Ciclo:</b> VI &nbsp;|&nbsp; <b>Créditos:</b> 4<br>
+    <b>Horas:</b> 3 teóricas, 2 prácticas | Total: 5 horas &nbsp;|&nbsp; <b>Área:</b> Estudios específicos<br>
+    <b>Semestre:</b> 2026-I &nbsp;|&nbsp; <b>Duración:</b> 30 de Marzo al 31 de Julio del 2026<br>
+    <b>Prerrequisito:</b> EST309 - Métodos de Optimización
+  </div>
+  <div class="meta">
+    <b>Docente:</b> Dr. Vargas Valverde Confesor Milán &nbsp;|&nbsp; Nombrado, Asociado T.C.<br>
+    <b>Especialidad:</b> Lic. en Estadística, M.Sc. en Estadística, Dr. en Estadística e Informática<br>
+    <b>Aula:</b> Pabellón Nuevo, Segundo Piso, Aula 202
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a> |
+    <a href="#logro">Logro</a> |
+    <a href="#unidad1">Unidad I</a> |
+    <a href="#unidad2">Unidad II</a> |
+    <a href="#metodologia">Metodología</a> |
+    <a href="#evaluacion">Evaluación</a> |
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <hr/>
+
+  <h2 id="sumilla">Sumilla</h2>
+  <p>El curso de Regresión Lineal y No Lineal corresponde al área curricular de Estudios Específicos, es de naturaleza teórico-práctica, cuyo propósito es brindar metodologías estadísticas de carácter cuantitativo y cualitativo que permita estimar un modelo para explicar de manera apropiada el comportamiento de la variable de interés usando software estadístico. Su contenido comprende:</p>
+  <ul>
+    <li><b>Unidad I:</b> Regresión Lineal Simple. Correlación lineal y Modelos curvilíneos.</li>
+    <li><b>Unidad II:</b> Modelos múltiples. Modelos aditivos generalizados (GAM). Regresión Tobit: modelos lineales para datos censurados.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="logro">Logro de Aprendizaje del Curso</h2>
+  <p>Usa las técnicas de regresión lineal y no lineal para encontrar modelos y realizar pronósticos en trabajos de investigación:</p>
+  <ul>
+    <li><b>Unidad I:</b> Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</li>
+    <li><b>Unidad II:</b> Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="unidad1">Unidad I — Modelos de Regresión Lineales</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</p>
+    <p><b>Duración:</b> 30 de Marzo al 25 de Mayo del 2026 (Total 40 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semana</th><th>Contenido</th></tr>
+    <tr><td>1</td><td>Regresión, correlación, Betas, error de estimación. Pruebas de hipótesis. Método de Mínimos Cuadrados y Doolittle Abreviado.</td></tr>
+    <tr><td>2</td><td>Método de Doolittle Abreviado y asociación de variables. Estimaciones y pruebas de hipótesis para correlaciones.</td></tr>
+    <tr><td>3</td><td>Estimación del modelo lineal simple: β₀ y β₁, interpretación, gráficos, pruebas T y F, asociación lineal simple.</td></tr>
+    <tr><td>4</td><td>Estimación del modelo cuadrático: reconocimiento de variables, cálculo de betas y pruebas de hipótesis.</td></tr>
+    <tr><td>5</td><td>Modelo cúbico: identificación y determinación de betas, interpretación de pruebas de hipótesis.</td></tr>
+    <tr><td>6</td><td>Modelo lineal múltiple con dos Xi. Método de Doolittle abreviado.</td></tr>
+    <tr><td>7</td><td>Modelo lineal múltiple con tres y cuatro Xi. Método matricial. <b>(Evidencia 1: Trabajos 50%)</b></td></tr>
+    <tr><td>8</td><td>Primer examen. <b>(Evidencia 2: Examen escrito 50%)</b></td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="unidad2">Unidad II — Modelos de Regresión No Lineales</h2>
+  <div class="unit-box">
+    <h3>Logro de la unidad</h3>
+    <p>Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</p>
+    <p><b>Duración:</b> 25 de Mayo al 27 de Julio del 2026 (Total 45 horas)</p>
+  </div>
+  <table>
+    <tr><th>Semana</th><th>Contenido</th></tr>
+    <tr><td>9</td><td>Modelos curvilíneos: definiciones, estimación de betas, interpretaciones, pruebas de hipótesis.</td></tr>
+    <tr><td>10</td><td>Modelos Compuesto y Logarítmico: mínimos cuadrados, cálculo de betas, gráficos.</td></tr>
+    <tr><td>11</td><td>Modelos de Crecimiento y Potencia: método de mínimos cuadrados.</td></tr>
+    <tr><td>12</td><td>Modelos Exponencial y Logística: método de mínimos cuadrados.</td></tr>
+    <tr><td>13</td><td>Evaluación de práctica. Reforzamiento de teoría y práctica.</td></tr>
+    <tr><td>14</td><td>Programación de los modelos estudiados — Creación de software propio.</td></tr>
+    <tr><td>15</td><td>Modelo Tobit: teoría y aplicación.</td></tr>
+    <tr><td>16</td><td>Cálculo de otros modelos con programación. <b>(Evidencia 3: Trabajos 50%)</b></td></tr>
+    <tr><td>17</td><td>Uso de herramientas informáticas. Evaluaciones finales. <b>(Evidencia 4: Examen escrito 50%)</b></td></tr>
+  </table>
+
+  <hr/>
+
+  <h2 id="metodologia">Estrategias Metodológicas</h2>
+  <ul>
+    <li>Videoconferencias, video-fórum, chat en línea, foros de análisis y discusión.</li>
+    <li>Exposición, debate y solución de casos.</li>
+    <li>Elaboración de trabajos de investigación descriptiva con procesamiento de datos y selección del modelo óptimo.</li>
+    <li>Uso del aula virtual (Classroom o Moodle de la UNA).</li>
+    <li>Aplicación de conocimientos en apoyo interdisciplinario a otras escuelas profesionales.</li>
+  </ul>
+
+  <hr/>
+
+  <h2 id="evaluacion">Evaluación</h2>
+  <table>
+    <tr><th>Unidad</th><th>Evidencia</th><th>Peso en unidad</th></tr>
+    <tr><td>I</td><td>Evidencia 1: Trabajos</td><td>50%</td></tr>
+    <tr><td>I</td><td>Evidencia 2: Examen escrito</td><td>50%</td></tr>
+    <tr><td>II</td><td>Evidencia 3: Trabajos</td><td>50%</td></tr>
+    <tr><td>II</td><td>Evidencia 4: Examen escrito</td><td>50%</td></tr>
+  </table>
+  <p style="margin-top:10px;"><b>Promedio final</b> = 50% (Unidad I) + 50% (Unidad II)</p>
+
+  <hr/>
+
+  <h2 id="bibliografia">Bibliografía</h2>
+  <ul>
+    <li>Ostle, B. (1979). <i>Estadística Aplicada</i>. Editorial LIMUSA S.A. México.</li>
+    <li>Gujarati, D. &amp; Porter, D. (2010). <i>Econometría</i>. Editorial McGraw-Hill. México.</li>
+    <li>Córdova, M. (2009). <i>Estadística Descriptiva e Inferencial</i>. Editorial MOSHERA. Lima.</li>
+    <li>Spiegel, M. &amp; Stephens, L. (2004). <i>Estadística Schaum</i>. McGraw-Hill. México.</li>
+    <li>Pérez, C. (2008). <i>Econometría Avanzada: Técnicas y herramientas</i>. Pearson Education. España.</li>
+    <li><a href="https://cienciadedatos.net/documentos/40_tobit_regression_modelos_lineales_para_datos_censurados" target="_blank">Regresión Tobit — cienciadedatos.net</a></li>
+    <li><a href="https://www.bioestadistica.uma.es/apuntesMaster/regresi%C3%B3n-lineal-m%C3%BAltiple.html" target="_blank">Regresión Lineal Múltiple — bioestadistica.uma.es</a></li>
+  </ul>
+
+  <hr/>
+  <footer>&copy; 2026 FIEI &mdash; Ingeniería Estadística e Informática &mdash; UNA Puno</footer>
+
+</div>
+</div>
+</body>
+</html>
