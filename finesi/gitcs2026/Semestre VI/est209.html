@@ -1,1 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
+<title>Regresión Lineal y No Lineal · UNA Puno</title>
+<meta name="description" content="Sílabo del curso Regresión Lineal y No Lineal - Facultad de Ingeniería Estadística e Informática - UNA Puno"/>
+<style>
+:root{
+  --accent: #1d4ed8;
+  --accent-soft: #3b82f6;
+  --bg: #060913;
+  --card: #ffffff;
+  --ink: #12141c;
+  --muted: #5b6072;
+  --line: #e7e8ee;
+  --chip: #f4f5fa;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background: radial-gradient(1200px 600px at 10% -10%, #10162b 0%, var(--bg) 55%);
+  font-family: 'Source Sans Pro', -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--ink);
+  padding: 32px 18px 60px;
+}
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,.55);
+}
+.hero{
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+  color: #fff;
+  padding: 46px 44px 34px;
+  position: relative;
+}
+.hero .eyebrow{
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12.5px;
+  font-weight: 700;
+  opacity: .85;
+  margin: 0 0 10px;
+}
+.hero h1{
+  margin: 0 0 6px;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.hero .sub{
+  font-size: 15.5px;
+  opacity: .92;
+  margin: 0 0 22px;
+  max-width: 640px;
+}
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
+}
+.nav{
+  display:flex; flex-wrap:wrap; gap: 2px;
+  background: var(--chip);
+  padding: 10px 44px;
+  border-bottom: 1px solid var(--line);
+  position: sticky; top:0; z-index: 5;
+}
+.nav a{
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+.nav a:hover{ color: var(--accent); background: #fff; }
+.content{ padding: 40px 44px 50px; }
+section{ margin-bottom: 42px; scroll-margin-top: 60px; }
+h2.section-title{
+  font-size: 22px;
+  margin: 0 0 4px;
+  color: var(--ink);
+  display:flex; align-items:center; gap:10px;
+}
+h2.section-title .num{
+  width: 30px; height:30px; border-radius: 9px;
+  background: var(--accent-soft); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 14px; font-weight:700;
+}
+.section-hint{ color: var(--muted); font-size: 13.5px; margin: 0 0 18px; }
+p.lead{ line-height: 1.7; color: #2b2e3a; font-size: 15.5px; text-align: justify; }
+.unit{
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.unit-head{
+  background: var(--chip);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.unit-head .tag{
+  color: var(--accent); font-weight: 700; font-size: 12.5px;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.unit-head h3{ margin: 4px 0 6px; font-size: 18px; }
+.unit-head .goal{ margin:0; color: var(--muted); font-size: 13.8px; line-height:1.5; }
+.unit-meta{ display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
+.unit-meta span{ font-size: 12.5px; color: var(--muted); font-weight:600; }
+.weeks{ padding: 6px 20px 18px; }
+.week{
+  display:grid;
+  grid-template-columns: 70px 1fr;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.week:last-child{ border-bottom:none; }
+.week .wnum{
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 13px;
+  padding-top: 2px;
+}
+.week .wbody b{ display:block; font-size: 14.3px; margin-bottom:2px; color: var(--ink); }
+.week .wbody .know{ font-size: 13.3px; color: var(--muted); line-height:1.5; }
+.week .wbody .ev{
+  display:inline-block; margin-top:6px; font-size: 11.8px;
+  background: var(--accent-soft); color:#fff; padding: 3px 9px; border-radius: 999px; font-weight:700;
+}
+table.eval{ width:100%; border-collapse: collapse; margin-top: 6px; font-size: 13.6px;}
+table.eval th{
+  text-align:left; background: var(--chip); padding: 10px 12px;
+  border-bottom: 2px solid var(--accent-soft); font-size: 12.3px;
+  text-transform: uppercase; letter-spacing:.04em; color: var(--muted);
+}
+table.eval td{ padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; color:#2b2e3a;}
+table.eval tr:last-child td{ border-bottom:none; }
+.formula{
+  background: var(--chip); border-left: 3px solid var(--accent-soft);
+  padding: 14px 18px; border-radius: 8px; font-size: 13.6px; line-height:1.7; color:#2b2e3a;
+}
+ul.plain{ margin: 8px 0 0; padding-left: 20px; }
+ul.plain li{ margin-bottom: 7px; font-size: 14px; line-height:1.55; color:#2b2e3a; }
+.grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media (max-width: 720px){ .grid2{ grid-template-columns: 1fr; } .hero{padding:34px 24px 26px;} .content{padding:28px 24px 40px;} .nav{padding:10px 20px;} .week{grid-template-columns: 46px 1fr;} }
+.biblio-cat{ font-weight:700; color: var(--accent); font-size:13px; text-transform:uppercase; letter-spacing:.05em; margin: 16px 0 6px; }
+.biblio-cat:first-child{ margin-top:0; }
+.footer{
+  padding: 26px 44px 34px; border-top: 1px solid var(--line);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  color: var(--muted); font-size: 12.8px;
+}
+.footer a{ color: var(--accent); text-decoration:none; font-weight:600;}
+.badge-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background: var(--accent-soft); margin-right:7px; }
+</style>
+</head>
+<body>
+<div class="wrap">
 
+  <div class="hero">
+    <p class="eyebrow">Facultad de Ingeniería Estadística e Informática &middot; UNA Puno</p>
+    <h1>Regresión Lineal y No Lineal</h1>
+    <p class="sub">Metodologías estadísticas cuantitativas y cualitativas para estimar modelos que expliquen el comportamiento de una variable de interés usando software estadístico.</p>
+    <div class="chips"><div class="chip">Ciclo VI</div><div class="chip">4 créditos</div><div class="chip">5 h/semana (3T+2P)</div><div class="chip">Presencial</div><div class="chip">Aula 202 · Pabellón Nuevo</div></div>
+  </div>
+
+  <div class="nav">
+    <a href="#sumilla">Sumilla</a>
+    <a href="#logro">Logro</a>
+    <a href="#contenido">Contenido</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#evaluacion">Evaluación</a>
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+
+  <div class="content">
+
+    <section id="sumilla">
+      <h2 class="section-title"><span class="num">1</span>Sumilla</h2>
+      <p class="lead">El curso corresponde al área curricular de Estudios Específicos, es de naturaleza teórico-práctica y tiene como propósito brindar metodologías estadísticas de carácter cuantitativo y cualitativo que permitan estimar un modelo para explicar de manera apropiada el comportamiento de la variable de interés usando software estadístico. Su contenido comprende dos unidades: Regresión Lineal Simple, correlación lineal y modelos curvilíneos; y Modelos Múltiples, Modelos Aditivos Generalizados (GAM) y Regresión Tobit para datos censurados.</p>
+    </section>
+
+    <section id="logro">
+      <h2 class="section-title"><span class="num">2</span>Logro de aprendizaje del curso</h2>
+      <p class="lead">El estudiante usa las técnicas de regresión lineal y no lineal para encontrar modelos y realizar pronósticos en trabajos de investigación. En la Unidad I encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo; en la Unidad II encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</p>
+    </section>
+
+    <section id="contenido">
+      <h2 class="section-title"><span class="num">3</span>Contenido temático</h2>
+      <p class="section-hint">Distribución semanal organizada en dos unidades didácticas.</p>
+      
+    <div class="unit">
+      <div class="unit-head">
+        <div class="tag">Unidad 1</div>
+        <h3>Modelos de regresión lineales</h3>
+        <p class="goal">Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</p>
+        <div class="unit-meta">
+          <span>&#128197; 30 mar – 25 may 2026</span>
+          <span>&#9200; 40 horas</span>
+          <span>&#128202; Avance: 50%</span>
+        </div>
+      </div>
+      <div class="weeks">
+        
+        <div class="week">
+          <div class="wnum">Semana 1</div>
+          <div class="wbody">
+            <b>Fundamentos del curso</b>
+            <div class="know">Regresión y correlación, betas (β), error de estimación, pruebas de hipótesis, estimaciones puntuales e interválicas. Método de Mínimos Cuadrados y Doolittle Abreviado.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 2</div>
+          <div class="wbody">
+            <b>Doolittle Abreviado y asociación de variables</b>
+            <div class="know">Estimaciones y pruebas de hipótesis para correlaciones.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 3</div>
+          <div class="wbody">
+            <b>Modelo lineal simple</b>
+            <div class="know">Cálculo de β0 y β1, interpretación, gráficos, pruebas T y F, asociación lineal simple.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 4</div>
+          <div class="wbody">
+            <b>Modelo cuadrático</b>
+            <div class="know">Reconocimiento de variables, cálculo de betas, pruebas de hipótesis.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 5</div>
+          <div class="wbody">
+            <b>Modelo cúbico</b>
+            <div class="know">Determinación de betas e interpretación de pruebas de hipótesis.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 6</div>
+          <div class="wbody">
+            <b>Modelo lineal múltiple (2 Xi)</b>
+            <div class="know">Diferenciación de variables aplicando el método de Doolittle Abreviado.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 7</div>
+          <div class="wbody">
+            <b>Modelo lineal múltiple (3 y 4 Xi)</b>
+            <div class="know">Método matricial y consecuencia lógica del método de Doolittle Abreviado.</div>
+            <span class="ev">Evidencia 1 · Trabajos (50%)</span>
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 8</div>
+          <div class="wbody">
+            <b>Evaluación de unidad</b>
+            <div class="know">Primer examen escrito.</div>
+            <span class="ev">Evidencia 2 · Examen escrito (50%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="unit">
+      <div class="unit-head">
+        <div class="tag">Unidad 2</div>
+        <h3>Modelos de regresión no lineales</h3>
+        <p class="goal">Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</p>
+        <div class="unit-meta">
+          <span>&#128197; 25 may – 27 jul 2026</span>
+          <span>&#9200; 45 horas</span>
+          <span>&#128202; Avance: 50%</span>
+        </div>
+      </div>
+      <div class="weeks">
+        
+        <div class="week">
+          <div class="wnum">Semana 9</div>
+          <div class="wbody">
+            <b>Modelos curvilíneos</b>
+            <div class="know">Definiciones, métodos de estimación de betas, interpretaciones, pruebas de hipótesis.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 10</div>
+          <div class="wbody">
+            <b>Modelos compuesto y logarítmico</b>
+            <div class="know">Mínimos cuadrados, cálculo de betas, pruebas de hipótesis, gráficos e interpretación.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 11</div>
+          <div class="wbody">
+            <b>Modelos de crecimiento y potencia</b>
+            <div class="know">Estimación por mínimos cuadrados.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 12</div>
+          <div class="wbody">
+            <b>Modelos exponencial y logístico</b>
+            <div class="know">Estimación por mínimos cuadrados.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 13</div>
+          <div class="wbody">
+            <b>Evaluación de práctica</b>
+            <div class="know">Reforzamiento de teoría y práctica.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 14</div>
+          <div class="wbody">
+            <b>Programación de modelos estudiados</b>
+            <div class="know">Creación de software propio para estimación de modelos.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 15</div>
+          <div class="wbody">
+            <b>Modelo Tobit</b>
+            <div class="know">Regresión para datos censurados: teoría expuesta.</div>
+            
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 16</div>
+          <div class="wbody">
+            <b>Otros modelos con programación</b>
+            <div class="know">Capacidad de elaboración de modelos avanzados.</div>
+            <span class="ev">Evidencia 3 · Trabajos (50%)</span>
+          </div>
+        </div>
+        <div class="week">
+          <div class="wnum">Semana 17</div>
+          <div class="wbody">
+            <b>Herramientas informáticas y evaluación final</b>
+            <div class="know">Evaluaciones finales del curso.</div>
+            <span class="ev">Evidencia 4 · Examen escrito (50%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section id="metodologia">
+      <h2 class="section-title"><span class="num">4</span>Estrategias metodológicas</h2>
+      <div class="grid2">
+        <div>
+          <div class="biblio-cat">Enseñanza y aprendizaje</div>
+          <ul class="plain"><li>Videoconferencias, video fórum y chat en línea.</li><li>Foros de análisis y discusión.</li><li>Exposición, debate y solución de casos.</li></ul>
+        </div>
+        <div>
+          <div class="biblio-cat">Investigación y virtualidad</div>
+          <ul class="plain"><li>Elaboración de trabajos de investigación descriptiva: procesamiento, pronósticos y selección del modelo óptimo de regresión.</li><li>Uso de Classroom / Moodle UNA para temas complementarios de regresión.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluacion">
+      <h2 class="section-title"><span class="num">5</span>Evaluación del aprendizaje</h2>
+      <table class="eval">
+        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
+        <tr><td>I</td><td>Encuentra modelos de regresión lineales válidos que cumplan los supuestos del modelo.</td><td>Trabajos (50%) + Examen escrito (50%)</td><td>50%</td></tr><tr><td>II</td><td>Encuentra modelos no lineales que rompen con las limitaciones de los modelos lineales.</td><td>Trabajos (50%) + Examen escrito (50%)</td><td>50%</td></tr>
+      </table>
+      <p class="section-hint" style="margin-top:16px;">Fórmula de calificación</p>
+      <div class="formula">Promedio parcial Unidad 1 = 50% (Evidencia 1) + 50% (Evidencia 2)<br>
+Promedio parcial Unidad 2 = 50% (Evidencia 1) + 50% (Evidencia 2)<br>
+<b>Promedio final = 50% (Promedio parcial Unidad 1) + 50% (Promedio parcial Unidad 2)</b></div>
+    </section>
+
+    <section id="bibliografia">
+      <h2 class="section-title"><span class="num">6</span>Fuentes de información</h2>
+      <div class="biblio-cat">Básica</div><ul class="plain"><li>Ostle, B. (1979). <i>Estadística Aplicada</i>. Editorial LIMUSA.</li></ul><div class="biblio-cat">Complementaria</div><ul class="plain"><li>Córdova M. (2009). <i>Estadística Descriptiva e Inferencial</i>. MOSHERA.</li><li>Córdova M. (2002). <i>Estadística Inferencial</i>. MOSHERA.</li><li>D'Ancona, A. (2004). <i>Análisis Multivariable</i>. Editorial SÍNTESIS.</li><li>Gujarati, D. & Porter, D. (2010). <i>Econometría</i>. McGraw Hill.</li><li>Pérez, C. (2008). <i>Econometría Avanzada: Técnicas y herramientas</i>. Pearson.</li><li>Spiegel, M. & Stephens, L. (2004). <i>Estadística</i>. Schaum, McGraw Hill.</li></ul><div class="biblio-cat">Electrónica</div><ul class="plain"><li>cienciadedatos.net — Regresión Tobit: modelos lineales para datos censurados.</li><li>eco.uc3m.es — Material de econometría avanzada.</li><li>bioestadistica.uma.es — Regresión lineal múltiple.</li></ul>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <div><span class="badge-dot"></span>Confesor Milán Vargas Valverde &middot; Lic. en Estadística · M.Sc. en Estadística · Dr. en Estadística e Informática</div>
+    <div>UNA Puno &middot; Semestre 2026-I &middot; Ciclo VI</div>
+  </div>
+
+</div>
+</body>
+</html>
